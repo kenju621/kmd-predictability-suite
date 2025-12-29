@@ -1,36 +1,219 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+KMD Predictability Suite
 
-## Getting Started
+A reusable Predictability Suite for multi-account, multi-device products.
+This project demonstrates three cross-surface UX primitives designed to reduce wrong-account actions and increase clarity across shared and personal devices:
 
-First, run the development server:
+Identity Context Bar
 
-```bash
+Permissions Preview Layer
+
+Activity Timeline Prototype
+
+These patterns help users understand who they are, what they’re doing, and who can see it before mistakes happen.
+
+Built with Next.js (App Router), React, Tailwind CSS, Zustand, and TypeScript.
+
+Why this exists
+
+Modern products span multiple identities (work, personal, guest), multiple devices (desktop, mobile, TV, kiosks), and shared contexts (family, teams, classrooms, clinics, retail). Users frequently:
+
+Take actions under the wrong account
+
+Share data more broadly than intended
+
+Lose awareness of who can see what
+
+Get confused switching between devices and profiles
+
+Struggle to reason about privacy and visibility
+
+Most of these issues are preventable with clear, system-level feedback.
+This project explores how a consistent, lightweight layer can improve predictability without adding friction.
+
+What’s included
+Identity Context Bar
+
+A persistent, cross-surface UI element that clearly communicates:
+
+Active identity (Work, Personal, Guest, Child, etc.)
+
+Active device context (Desktop, Mobile, TV, Shared Device)
+
+Scenario being simulated
+
+Whether the setup is aligned, risky, or mismatched
+
+The bar uses color and tone to indicate confidence level:
+
+Green: aligned with scenario intent
+
+Amber: identity mismatch
+
+Blue: device mismatch
+
+Red: high-risk (identity and device both misaligned)
+
+This demonstrates how systems-level UX can prevent wrong-account actions before they happen.
+
+Permissions Preview Layer
+
+A transparent preview showing what will happen before an action is taken, such as:
+
+Who will see a shared document
+
+What audience a post will reach
+
+Whether content is visible to personal, work, or shared profiles
+
+The intent is to reduce uncertainty at the decision point while keeping the UI calm, neutral, and predictable.
+
+Activity Timeline Prototype
+
+A simple model for explaining:
+
+What just happened
+
+Who performed the action
+
+Under which identity
+
+On which device
+
+With what impact on visibility
+
+This supports trust, auditability, and user understanding.
+
+Architecture Overview
+
+This project is intentionally lightweight and transparent.
+
+Next.js App Router (16.x)
+
+React 19
+
+Tailwind CSS v4
+
+Zustand for identity and scenario state
+
+TypeScript with strong typing for clarity
+
+Lucide React for iconography
+
+Framer Motion for subtle motion
+
+There is no backend dependency. All scenarios are simulated locally so the UX model can be evaluated in isolation.
+
+Project Structure
+src/
+  app/
+    page.tsx              // Home
+    demo/                 // Context bar playground
+    permissions/          // Permissions preview demo
+    activity/             // Activity timeline demo
+  components/
+    context-bar/          // Identity bar system
+    demo/                 // Playground elements
+    layout/               // Shared shell and navigation
+    ui/                   // Base UI components
+  store/
+    accountStore.ts       // Identity + device state
+  lib/
+    accounts.ts
+    devices.ts
+    scenerios.ts          // Scenario definitions
+
+Getting Started
+
+Install dependencies:
+
+npm install
+
+
+Run locally:
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Build for production:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+npm run build
+npm start
 
-## Learn More
+Live Demo
 
-To learn more about Next.js, take a look at the following resources:
+Once deployed to Vercel, you can access the following routes:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+/ — Overview
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+/demo — Identity Context Bar playground
 
-## Deploy on Vercel
+/permissions — Permissions Preview Layer
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+/activity — Activity Timeline prototype
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Design Principles
+
+This project is guided by a few principles:
+
+Predictability over surprise
+
+Calm clarity over alerts
+
+Transparency without blame
+
+Cross-surface consistency
+
+Trust built through visibility
+
+Lightweight systems over heavy gates
+
+The goal is to help users stay oriented without interrupting flow.
+
+Where this applies
+
+These primitives are reusable across many industries:
+
+Productivity and collaboration platforms
+
+Streaming and shared device experiences
+
+Fintech and business-to-consumer financial tools
+
+Healthcare and patient-caregiver portals
+
+Education and parent-student-teacher platforms
+
+Retail POS and shared terminal environments
+
+Customer support and multi-brand tools
+
+Government, legal, and justice systems
+
+Anywhere identity, visibility, and device context intersect, predictability matters.
+
+Status
+
+This is a working prototype intended for research, learning, and design exploration. It is not a production framework, but the patterns are production-ready.
+
+Future Ideas
+
+Potential next steps include:
+
+Role-based identity modeling
+
+More granular visibility states
+
+Expanded shared-device behaviors
+
+Richer audit trails
+
+User testing and heuristics refinement
+
+License
+
+This project is released for learning and demonstration purposes.
+If you would like to collaborate or extend it, please reach out.
+
+Author
+
+Kenju Management & Design (KMD)
